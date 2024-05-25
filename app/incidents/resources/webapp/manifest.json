@@ -15,21 +15,9 @@
             "version": "1.9.7",
             "toolsId": "b6e2272d-1167-41a4-baed-217444579193"
         },
-        "crossNavigation": {
-            "inbounds": {
-              "intent1": {
-                "signature": {
-                  "parameters": {},
-                  "additionalParameters": "allowed"
-                },
-                "semanticObject": "Incidents",
-                "action": "display"
-              }
-            }
-          },
         "dataSources": {
             "mainService": {
-                "uri": "/odata/v4/processors/",
+                "uri": "odata/v4/processors/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -37,7 +25,21 @@
                     "odataVersion": "4.0"
                 }
             }
-        }
+        },
+        "crossNavigation": {
+          "inbounds": {
+              "incidents-display": {
+                  "semanticObject": "incidents",
+                  "action": "display",
+                  "title": "{{flpTitle}}",
+                  "subTitle": "{{flpSubtitle}}",
+                  "signature": {
+                      "parameters": {},
+                      "additionalParameters": "allowed"
+                  }
+              }
+          }
+      }
     },
     "sap.ui": {
         "technology": "UI5",
@@ -190,5 +192,9 @@
     "sap.fiori": {
         "registrationIds": [],
         "archeType": "transactional"
-    }
+    },
+    "sap.cloud": {
+      "public": true,
+      "service": "incidents"
+  }
 }
